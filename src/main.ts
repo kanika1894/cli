@@ -53,6 +53,7 @@ const run = async () => {
         command += ` -v ${process.env.HOME}/.azure:/root/.azure -v ${TEMP_DIRECTORY}:${CONTAINER_TEMP_DIRECTORY} `;
         command += ` ${environmentVariables} `;
         command += `-e GITHUB_WORKSPACE=${CONTAINER_WORKSPACE} `;
+        command += `-e TEMP_DIRECTORY=${CONTAINER_TEMP_DIRECTORY} `;
         command += `--name ${CONTAINER_NAME} `;
         command += ` mcr.microsoft.com/azure-cli:${azcliversion} ${startCommand}`;
         console.log(`${START_SCRIPT_EXECUTION_MARKER}${azcliversion}`);
